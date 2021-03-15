@@ -24,14 +24,11 @@ class PayoutsListActivity : AppCompatActivity() {
 /* create a list using the Model class and instantiate the adapter*/
     val activityList = ArrayList<ActivityModel>()
     private lateinit var activityAdapter: ActivityAdapter
+    var restCallCount : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        /* removing the title bar on top of this activity */
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_payouts_list)
-
-
 
         /* add a layout manager and add the data from the activityList to the adapter*/
         linearLayoutManager = LinearLayoutManager(this)
@@ -49,7 +46,7 @@ class PayoutsListActivity : AppCompatActivity() {
 
     private fun prepareActivityList() {
 
-        val url = "https://veryable-public-assets.s3.us-east-2.amazonaws.com/veryable.json"
+        val url = getString(R.string.PAYOUTS_DATA_JSON_URL)
 
         var activityItem = ActivityModel("","","",0)
         val queue = Volley.newRequestQueue(this)
@@ -61,11 +58,10 @@ class PayoutsListActivity : AppCompatActivity() {
                 try {
                     for (i in 0 until response.length()) {
                         val jsonArray = response.getJSONObject(i)
-                        val id = jsonArray["id"]
-                        val accountType = jsonArray["account_type"]
-                        val accountName = jsonArray["account_name"]
-                        val desc = jsonArray["desc"]
-                        Log.i("Accounttype", accountType.toString())
+                        val id = jsonArray[getString(R.string.ACCOUNT_ID)]
+                        val accountType = jsonArray[getString(R.string.ACCOUNT_TYPE_JSON)]
+                        val accountName = jsonArray[getString(R.string.ACCOUNT_NAME_JSON)]
+                        val desc = jsonArray[getString(R.string.ACCOUNT_DESC)]
                         var acitivityItem = ActivityModel(accountType as String?,accountName as String?, desc as String?, id as Int?)
                         activityList.add(acitivityItem)
                     }
@@ -73,20 +69,19 @@ class PayoutsListActivity : AppCompatActivity() {
                     activityAdapter.notifyDataSetChanged()
                 } catch (e: JSONException) {
                     e.printStackTrace()
+                    if (restCallCount < 3){
+                        restCallCount += 1
+                        prepareActivityList()
+                    }
                 }
             },
-            { error -> error.printStackTrace() })
+            { error -> error.printStackTrace()
+                if (restCallCount < 3) {
+                    restCallCount += 1
+                    prepareActivityList()
+                }
+                })
         queue.add(request)
         queue.start()
-    }
-
-    public fun onItemClickHandler(position:Int){
-        Log.d("***","${position}");
-        val intentToPayoutDetails = Intent(this, PayoutsDetailsActivity::class.java)
-        intentToPayoutDetails.putExtra("position", position)
-        Log.i("",activityList[position].toString())
-        startActivity(intentToPayoutDetails)
-        //here you can start a new intent to open a new activity on click of item
-
     }
 }

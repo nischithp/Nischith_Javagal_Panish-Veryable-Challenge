@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">Veryable Coding Challenge</string>
     <string name="welcome_to_veryable_coding_challenge">Welcome To Veryable Coding Challenge</string>
+    <string name="details">DETAILS</string>
+    <string name="BANK">bank</string>
+    <string name="CARD">card</string>
+    <string name="ACCOUNT_NAME">accountName</string>
+    <string name="ACCOUNT_ID">id</string>
+    <string name="ACCOUNT_TYPE">accountType</string>
+    <string name="ACCOUNT_DESC">desc</string>
+    <string name="PAYOUTS_DATA_JSON_URL">https://veryable-public-assets.s3.us-east-2.amazonaws.com/veryable.json</string>
+    <string name="ACCOUNT_TYPE_JSON">account_type</string>
+    <string name="ACCOUNT_NAME_JSON">account_name</string>
+    <string name="BANK_ASSET_STRING">bank</string>
+    <string name="CARD_ASSET_STRING">card</string>
 </resources>

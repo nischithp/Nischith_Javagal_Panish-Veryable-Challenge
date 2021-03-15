@@ -4,30 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:layout_margin="8dp"
+    android:layout_margin="5dp"
     android:elevation="5dp"
     app:cardBackgroundColor="@color/design_default_color_background"
     app:cardElevation="5dp"
     app:cardMaxElevation="5dp">
 
     <RelativeLayout
+        android:id="@+id/layoutPayoutsListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="89dp"
         android:padding="8dp">
 
         <ImageView
             android:id="@+id/cardImage"
-            android:layout_width="32dp"
-            android:layout_height="28dp"
+            android:layout_width="41dp"
+            android:layout_height="29dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="7dp"
+            android:layout_marginStart="6dp"
             android:layout_marginTop="7dp"
-            android:layout_marginBottom="57dp"
+            android:layout_marginBottom="45dp"
             android:background="#FFFFFF"
             android:backgroundTint="#FFFFFF"
-            android:tint="@android:color/holo_blue_dark"
+            app:tint="@android:color/holo_blue_dark"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
@@ -35,8 +36,8 @@
             android:layout_width="188dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="16dp"
-            android:layout_toStartOf="@+id/button"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/angleRightImageView"
             android:layout_toEndOf="@+id/cardImage"
             android:fontFamily="@font/roboto_bold"
             android:textColor="#4A4A4A"
@@ -44,16 +45,17 @@
 
         <TextView
             android:id="@+id/year"
-            android:layout_width="194dp"
-            android:layout_height="wrap_content"
+            android:layout_width="295dp"
+            android:layout_height="19dp"
             android:layout_above="@id/genre"
-            android:layout_marginStart="9dp"
-            android:layout_marginEnd="18dp"
-            android:layout_marginBottom="21dp"
-            android:layout_toStartOf="@+id/button"
+            android:layout_below="@+id/title"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toStartOf="@+id/angleRightImageView"
             android:layout_toEndOf="@+id/cardImage"
             android:fontFamily="@font/roboto_thin"
-            android:text="TextView"
             android:textColor="#4A4A4A"
             android:textSize="12dp" />
 
@@ -62,25 +64,27 @@
             android:layout_width="198dp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="14dp"
-            android:layout_toStartOf="@+id/button"
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginBottom="4dp"
+            android:layout_toStartOf="@+id/angleRightImageView"
             android:layout_toEndOf="@+id/cardImage"
             android:fontFamily="@font/roboto_thin"
             android:textColor="#7E7E7E"
             android:textSize="12dp" />
 
-        <TextView
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/angleRightImageView"
+            android:layout_width="10dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="11dp"
-            android:layout_marginBottom="45dp"
-            android:background="#FFFFFF"
-            android:fontFamily="@font/roboto_thin"
-            android:text=">"
-            android:textColor="#4A4A4A" />
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="30dp"
+            android:background="#00FFFFFF"
+            android:tint="#000000"
+            app:srcCompat="@drawable/angle_right" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

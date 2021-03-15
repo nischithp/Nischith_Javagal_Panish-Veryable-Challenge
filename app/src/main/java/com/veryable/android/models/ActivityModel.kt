@@ -5,18 +5,19 @@ class ActivityModel(accountType: String?, accountName: String?, desc: String?, i
     private var accountType: String
     private var accountName: String
     private var desc: String
-    private var id: Int = 0
+    private var accountId: Int = 0
 
     init {
         this.accountType = accountType!!
         this.accountName = accountName!!
         this.desc = desc!!
+        this.accountId = id!!
     }
-    fun getId(): Int? {
-        return id
+    fun getAccountId(): Int? {
+        return accountId
     }
-    fun setId(id: Int?) {
-        this.id = id!!
+    fun setAccountId(id: Int?) {
+        this.accountId = id!!
     }
     fun getAccountType(): String? {
         return accountType
