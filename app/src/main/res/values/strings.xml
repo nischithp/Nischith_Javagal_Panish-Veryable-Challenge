@@ -13,4 +13,6 @@
     <string name="ACCOUNT_NAME_JSON">account_name</string>
     <string name="BANK_ASSET_STRING">bank</string>
     <string name="CARD_ASSET_STRING">card</string>
+    <string name="CARD_INSTANT">Card: Instant</string>
+    <string name="BANK_ACCOUNT_ACH_SAMEDAY">Bank Account: ACH - Same Day</string>
 </resources>

@@ -13,6 +13,13 @@ import com.veryable.android.models.ActivityModel
 
 internal class ActivityAdapter (private var activityList: List<ActivityModel>):
     RecyclerView.Adapter<ActivityAdapter.MyViewHolder>() {
+
+    /* constants */
+    val BANK_ACCOUNT_ACH_SAMEDAY : String = "Bank Account: ACH - Same Day"
+    val CARD_INSTANT : String = "Card: Instant"
+    val CARD_ACCOUNT_TYPE : String = "card"
+    val BANK_ACCOUNT_TYPE : String = "bank"
+
     internal inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var accountName: TextView = view.findViewById(R.id.title)
         var desc: TextView = view.findViewById(R.id.year)
@@ -42,14 +49,18 @@ internal class ActivityAdapter (private var activityList: List<ActivityModel>):
             intentToPayoutDetails.putExtra(R.string.ACCOUNT_TYPE.toString(), item.getAccountType())
             startActivity(it.context, intentToPayoutDetails, null)
         }
-        if (item.getAccountType() == "card"){
+        if (item.getAccountType().equals(CARD_ACCOUNT_TYPE)){
             holder.image.setImageResource(R.drawable.baseline_credit_card_black_48pt_1x)
+            holder.accountType.text = CARD_INSTANT
         }
-        else if(item.getAccountType() == "bank"){
+        else if(item.getAccountType().equals(BANK_ACCOUNT_TYPE)){
             holder.image.setImageResource(R.drawable.baseline_account_balance_black_48pt_1x)
+            holder.accountType.text = BANK_ACCOUNT_ACH_SAMEDAY
+
         }
         else {
             holder.image.setImageResource(R.drawable.baseline_credit_card_black_48pt_1x)
+            holder.accountType.text = CARD_INSTANT
         }
 
     }
