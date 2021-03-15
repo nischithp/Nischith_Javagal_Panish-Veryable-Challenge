@@ -1,31 +1,39 @@
 package com.veryable.android.models
 
 
-class ActivityModel(title: String?, genre: String?, year: String?) {
-    private var title: String
-    private var genre: String
-    private var year: String
+class ActivityModel(accountType: String?, accountName: String?, desc: String?, id: Int?) {
+    private var accountType: String
+    private var accountName: String
+    private var desc: String
+    private var id: Int = 0
+
     init {
-        this.title = title!!
-        this.genre = genre!!
-        this.year = year!!
+        this.accountType = accountType!!
+        this.accountName = accountName!!
+        this.desc = desc!!
     }
-    fun getTitle(): String? {
-        return title
+    fun getId(): Int? {
+        return id
+    }
+    fun setId(id: Int?) {
+        this.id = id!!
+    }
+    fun getAccountType(): String? {
+        return accountType
     }
     fun setTitle(name: String?) {
-        title = name!!
+        accountType = name!!
     }
-    fun getYear(): String? {
-        return year
+    fun getDesc(): String? {
+        return desc
     }
     fun setYear(year: String?) {
-        this.year = year!!
+        this.desc = year!!
     }
-    fun getGenre(): String? {
-        return genre
+    fun getAccountName(): String? {
+        return accountName
     }
     fun setGenre(genre: String?) {
-        this.genre = genre!!
+        this.accountName = genre!!
     }
 }
